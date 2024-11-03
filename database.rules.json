@@ -1,0 +1,15 @@
+{
+  "rules": {
+    ".read": true,
+    ".write": false,
+    "favorites": {
+      ".indexOn": "count"
+    },
+    "tried": {
+      ".indexOn": "count"
+    },
+    "wishlist": {
+      ".indexOn": "count"
+    }
+  }
+}
