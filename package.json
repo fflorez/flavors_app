@@ -38,7 +38,7 @@
     "webpack-dev-server": "^4.15.1",
     "webpack-merge": "^5.10.0",
     "@babel/preset-env": "^7.24.7",
-    "babel-jest": "^29.7.0"c
+    "babel-jest": "^29.7.0"
   },
   "dependencies": {
     "firebase": "^10.7.1"

@@ -16,9 +16,10 @@ const firebaseApp = initializeApp({
   databaseURL: "https://flavors-69d0b-default-rtdb.firebaseio.com/",
 });
 
-const appCheck = initializeAppCheck(app, {
+/* const appCheck = initializeAppCheck(firebaseApp, {
   provider: new ReCaptchaEnterpriseProvider(
     "6Ld26y8pAAAAAB_6ekl_ynjPM-TCazylbCm3u82e"
   ),
   isTokenAutoRefreshEnabled: true, // Set to true to allow auto-refresh.
 });
+ */
