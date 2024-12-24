@@ -213,6 +213,7 @@ describe("GlobalState", () => {
     GlobalState.setFavorites([]);
     GlobalState.setTried([]);
     GlobalState.setWishlist([]);
+    GlobalState.setAvailableCuisines("default");
   });
 
   // Verify Global State exists
@@ -409,5 +410,420 @@ describe("GlobalState", () => {
     GlobalState.removeWishlist("100");
     expect(GlobalState.getWishlist()).toEqual([]);
     expect(GlobalState.getCuisine("100").isWishlist).toBe(false);
+  });
+
+  // Verify setting available cuisine with  all strategy
+  test("<HAPPY>[setAvailableCuisines] - Set with all", () => {
+    GlobalState.setAvailableCuisines("all");
+
+    expect(GlobalState.getAvailableCuisines().sort()).toEqual(
+      allCuisines.sort()
+    );
+    expect(GlobalState.getRemainingCuisineCount()).toBe(allCuisines.length);
+  });
+
+  // Verify setting available cuisine with wishlist strategy
+  test("<HAPPY>[setAvailableCuisines] - Set with wishlist", () => {
+    GlobalState.setWishlist(wishlist);
+    GlobalState.setAvailableCuisines("wishlist");
+
+    expect(GlobalState.getAvailableCuisines().sort()).toEqual(wishlist.sort());
+    expect(GlobalState.getRemainingCuisineCount()).toBe(wishlist.length);
+  });
+
+  // Verify setting available cuisine with favorites strategy
+  test("<HAPPY>[setAvailableCuisines] - Set with favorites", () => {
+    GlobalState.setFavorites(favorites);
+    GlobalState.setAvailableCuisines("favorites");
+
+    expect(GlobalState.getAvailableCuisines().sort()).toEqual(favorites.sort());
+    expect(GlobalState.getRemainingCuisineCount()).toBe(favorites.length);
+  });
+
+  // Verify setting available cuisine with tried strategy
+  test("<HAPPY>[setAvailableCuisines] - Set with tried", () => {
+    GlobalState.setTried(tried);
+    GlobalState.setAvailableCuisines("tried");
+
+    expect(GlobalState.getAvailableCuisines().sort()).toEqual(tried.sort());
+    expect(GlobalState.getRemainingCuisineCount()).toBe(tried.length);
+  });
+
+  // Verify setting available cuisine with asia strategy
+  test("<HAPPY>[setAvailableCuisines] - Set with Asia", () => {
+    GlobalState.setAvailableCuisines("Asia");
+
+    expect(GlobalState.getAvailableCuisines().sort()).toEqual(asia.sort());
+    expect(GlobalState.getRemainingCuisineCount()).toBe(asia.length);
+  });
+
+  // Verify setting available cuisine with africa strategy
+  test("<HAPPY>[setAvailableCuisines] - Set with Africa", () => {
+    GlobalState.setAvailableCuisines("Africa");
+
+    expect(GlobalState.getAvailableCuisines().sort()).toEqual(africa.sort());
+    expect(GlobalState.getRemainingCuisineCount()).toBe(africa.length);
+  });
+
+  // Verify setting available cuisine with North America strategy
+  test("<HAPPY>[setAvailableCuisines] - Set with North America", () => {
+    GlobalState.setAvailableCuisines("North America");
+
+    expect(GlobalState.getAvailableCuisines().sort()).toEqual(
+      northAmerica.sort()
+    );
+    expect(GlobalState.getRemainingCuisineCount()).toBe(northAmerica.length);
+  });
+
+  // Verify setting available cuisine with South America strategy
+  test("<HAPPY>[setAvailableCuisines] - Set with South America", () => {
+    GlobalState.setAvailableCuisines("South America");
+
+    expect(GlobalState.getAvailableCuisines().sort()).toEqual(
+      southAmerica.sort()
+    );
+    expect(GlobalState.getRemainingCuisineCount()).toBe(southAmerica.length);
+  });
+
+  // Verify setting available cuisine with Europe strategy
+  test("<HAPPY>[setAvailableCuisines] - Set with Europe", () => {
+    GlobalState.setAvailableCuisines("Europe");
+
+    expect(GlobalState.getAvailableCuisines().sort()).toEqual(europe.sort());
+    expect(GlobalState.getRemainingCuisineCount()).toBe(europe.length);
+  });
+
+  // Verify setting available cuisine with Oceania strategy
+  test("<HAPPY>[setAvailableCuisines] - Set with Oceania", () => {
+    GlobalState.setAvailableCuisines("Oceania");
+
+    expect(GlobalState.getAvailableCuisines().sort()).toEqual(oceania.sort());
+    expect(GlobalState.getRemainingCuisineCount()).toBe(oceania.length);
+  });
+
+  // Verify setting available cuisine with salty strategy
+  test("<HAPPY>[setAvailableCuisines] - Set with salty", () => {
+    GlobalState.setAvailableCuisines("salty");
+
+    expect(GlobalState.getAvailableCuisines().sort()).toEqual(salty.sort());
+    expect(GlobalState.getRemainingCuisineCount()).toBe(salty.length);
+  });
+
+  // Verify setting available cuisine with sweet strategy
+  test("<HAPPY>[setAvailableCuisines] - Set with sweet", () => {
+    GlobalState.setAvailableCuisines("sweet");
+
+    expect(GlobalState.getAvailableCuisines().sort()).toEqual(sweet.sort());
+    expect(GlobalState.getRemainingCuisineCount()).toBe(sweet.length);
+  });
+
+  // Verify setting available cuisine with sour strategy
+  test("<HAPPY>[setAvailableCuisines] - Set with sour", () => {
+    GlobalState.setAvailableCuisines("sour");
+
+    expect(GlobalState.getAvailableCuisines().sort()).toEqual(sour.sort());
+    expect(GlobalState.getRemainingCuisineCount()).toBe(sour.length);
+  });
+
+  // Verify setting available cuisine with spicy strategy
+  test("<HAPPY>[setAvailableCuisines] - Set with spicy", () => {
+    GlobalState.setAvailableCuisines("spicy");
+
+    expect(GlobalState.getAvailableCuisines().sort()).toEqual(spicy.sort());
+    expect(GlobalState.getRemainingCuisineCount()).toBe(spicy.length);
+  });
+
+  // Verify setting available cuisine with umani strategy
+  test("<HAPPY>[setAvailableCuisines] - Set with umani", () => {
+    GlobalState.setAvailableCuisines("umani");
+
+    expect(GlobalState.getAvailableCuisines().sort()).toEqual(umani.sort());
+    expect(GlobalState.getRemainingCuisineCount()).toBe(umani.length);
+  });
+
+  // Verify setting available cuisine with mostFavorite strategy
+  test("<HAPPY>[setAvailableCuisines] - Set with mostFavorite", () => {
+    GlobalState.setAvailableCuisines("mostFavorite");
+
+    expect(GlobalState.getAvailableCuisines().sort()).toEqual(
+      mostFavorite.sort()
+    );
+    expect(GlobalState.getRemainingCuisineCount()).toBe(mostFavorite.length);
+  });
+
+  // Verify setting available cuisine with mostTried strategy
+  test("<HAPPY>[setAvailableCuisines] - Set with mostTried", () => {
+    GlobalState.setAvailableCuisines("mostTried");
+
+    expect(GlobalState.getAvailableCuisines().sort()).toEqual(mostTried.sort());
+    expect(GlobalState.getRemainingCuisineCount()).toBe(mostTried.length);
+  });
+
+  // Verify setting available cuisine with mostWishlist strategy
+  test("<HAPPY>[setAvailableCuisines] - Set with mostWishlist", () => {
+    GlobalState.setAvailableCuisines("mostWishlist");
+
+    expect(GlobalState.getAvailableCuisines().sort()).toEqual(
+      mostWishlist.sort()
+    );
+    expect(GlobalState.getRemainingCuisineCount()).toBe(mostWishlist.length);
+  });
+
+  // Verify generate cuisine empty available cuisines
+  test("<ANOMALY>[generateCuisine] - Empty available cuisines", () => {
+    expect(GlobalState.generateCuisine()).toBe("");
+  });
+
+  test("<HAPPY>[generateCuisne] - One available cuisine", () => {
+    GlobalState.addFavorite("100");
+    GlobalState.setAvailableCuisines("favorites");
+
+    expect(GlobalState.getAvailableCuisines()).toEqual(["100"]);
+    expect(GlobalState.getRemainingCuisineCount()).toBe(1);
+
+    expect(GlobalState.generateCuisine()).toBe("100");
+    expect(GlobalState.getAvailableCuisines()).toEqual([]);
+    expect(GlobalState.getFavorites()).toEqual(["100"]);
+    expect(GlobalState.getRemainingCuisineCount()).toBe(0);
+  });
+
+  test("<HAPPY>[generateCuisne] - Get with all", () => {
+    GlobalState.setAvailableCuisines("all");
+    expect(GlobalState.getAvailableCuisines().sort()).toEqual(
+      allCuisines.sort()
+    );
+    expect(GlobalState.getRemainingCuisineCount()).toBe(allCuisines.length);
+
+    const generatedCuisine = GlobalState.generateCuisine();
+    const isIn = allCuisines.includes(generatedCuisine);
+    expect(isIn).toBe(true);
+    expect(GlobalState.getRemainingCuisineCount()).toBe(allCuisines.length - 1);
+  });
+
+  test("<HAPPY>[generateCuisne] - Get with wishlist", () => {
+    GlobalState.setWishlist(wishlist);
+    GlobalState.setAvailableCuisines("wishlist");
+    expect(GlobalState.getAvailableCuisines().sort()).toEqual(wishlist.sort());
+    expect(GlobalState.getRemainingCuisineCount()).toBe(wishlist.length);
+
+    const generatedCuisine = GlobalState.generateCuisine();
+    const isIn = wishlist.includes(generatedCuisine);
+    expect(isIn).toBe(true);
+    expect(GlobalState.getRemainingCuisineCount()).toBe(wishlist.length - 1);
+    expect(GlobalState.getWishlist().length).toBe(wishlist.length);
+  });
+
+  test("<HAPPY>[generateCuisne] - Get with favorites", () => {
+    GlobalState.setFavorites(favorites);
+    GlobalState.setAvailableCuisines("favorites");
+    expect(GlobalState.getAvailableCuisines().sort()).toEqual(favorites.sort());
+    expect(GlobalState.getRemainingCuisineCount()).toBe(favorites.length);
+
+    const generatedCuisine = GlobalState.generateCuisine();
+    const isIn = favorites.includes(generatedCuisine);
+    expect(isIn).toBe(true);
+    expect(GlobalState.getRemainingCuisineCount()).toBe(favorites.length - 1);
+    expect(GlobalState.getFavorites().length).toBe(favorites.length);
+  });
+
+  test("<HAPPY>[generateCuisne] - Get with tried", () => {
+    GlobalState.setTried(tried);
+    GlobalState.setAvailableCuisines("tried");
+    expect(GlobalState.getAvailableCuisines().sort()).toEqual(tried.sort());
+    expect(GlobalState.getRemainingCuisineCount()).toBe(tried.length);
+
+    const generatedCuisine = GlobalState.generateCuisine();
+    const isIn = tried.includes(generatedCuisine);
+    expect(isIn).toBe(true);
+    expect(GlobalState.getRemainingCuisineCount()).toBe(tried.length - 1);
+    expect(GlobalState.getTried().length).toBe(tried.length);
+  });
+
+  test("<HAPPY>[generateCuisne] - Get with asia", () => {
+    GlobalState.setAvailableCuisines("Asia");
+    expect(GlobalState.getAvailableCuisines().sort()).toEqual(asia.sort());
+    expect(GlobalState.getRemainingCuisineCount()).toBe(asia.length);
+
+    const generatedCuisine = GlobalState.generateCuisine();
+    const isIn = asia.includes(generatedCuisine);
+    expect(isIn).toBe(true);
+    expect(GlobalState.getRemainingCuisineCount()).toBe(asia.length - 1);
+    expect(GlobalState.getContinent("Asia").length).toBe(asia.length);
+  });
+
+  test("<HAPPY>[generateCuisne] - Get with africa", () => {
+    GlobalState.setAvailableCuisines("Africa");
+    expect(GlobalState.getAvailableCuisines().sort()).toEqual(africa.sort());
+    expect(GlobalState.getRemainingCuisineCount()).toBe(africa.length);
+
+    const generatedCuisine = GlobalState.generateCuisine();
+    const isIn = africa.includes(generatedCuisine);
+    expect(isIn).toBe(true);
+    expect(GlobalState.getRemainingCuisineCount()).toBe(africa.length - 1);
+    expect(GlobalState.getContinent("Africa").length).toBe(africa.length);
+  });
+
+  test("<HAPPY>[generateCuisne] - Get with northAmerica", () => {
+    GlobalState.setAvailableCuisines("North America");
+    expect(GlobalState.getAvailableCuisines().sort()).toEqual(
+      northAmerica.sort()
+    );
+    expect(GlobalState.getRemainingCuisineCount()).toBe(northAmerica.length);
+
+    const generatedCuisine = GlobalState.generateCuisine();
+    const isIn = northAmerica.includes(generatedCuisine);
+    expect(isIn).toBe(true);
+    expect(GlobalState.getRemainingCuisineCount()).toBe(
+      northAmerica.length - 1
+    );
+    expect(GlobalState.getContinent("North America").length).toBe(
+      northAmerica.length
+    );
+  });
+
+  test("<HAPPY>[generateCuisne] - Get with southAmerica", () => {
+    GlobalState.setAvailableCuisines("South America");
+    expect(GlobalState.getAvailableCuisines().sort()).toEqual(
+      southAmerica.sort()
+    );
+    expect(GlobalState.getRemainingCuisineCount()).toBe(southAmerica.length);
+
+    const generatedCuisine = GlobalState.generateCuisine();
+    const isIn = southAmerica.includes(generatedCuisine);
+    expect(isIn).toBe(true);
+    expect(GlobalState.getRemainingCuisineCount()).toBe(
+      southAmerica.length - 1
+    );
+    expect(GlobalState.getContinent("South America").length).toBe(
+      southAmerica.length
+    );
+  });
+
+  test("<HAPPY>[generateCuisne] - Get with europe", () => {
+    GlobalState.setAvailableCuisines("Europe");
+    expect(GlobalState.getAvailableCuisines().sort()).toEqual(europe.sort());
+    expect(GlobalState.getRemainingCuisineCount()).toBe(europe.length);
+
+    const generatedCuisine = GlobalState.generateCuisine();
+    const isIn = europe.includes(generatedCuisine);
+    expect(isIn).toBe(true);
+    expect(GlobalState.getRemainingCuisineCount()).toBe(europe.length - 1);
+    expect(GlobalState.getContinent("Europe").length).toBe(europe.length);
+  });
+
+  test("<HAPPY>[generateCuisne] - Get with oceania", () => {
+    GlobalState.setAvailableCuisines("Oceania");
+    expect(GlobalState.getAvailableCuisines().sort()).toEqual(oceania.sort());
+    expect(GlobalState.getRemainingCuisineCount()).toBe(oceania.length);
+
+    const generatedCuisine = GlobalState.generateCuisine();
+    const isIn = oceania.includes(generatedCuisine);
+    expect(isIn).toBe(true);
+    expect(GlobalState.getRemainingCuisineCount()).toBe(oceania.length - 1);
+    expect(GlobalState.getContinent("Oceania").length).toBe(oceania.length);
+  });
+
+  test("<HAPPY>[generateCuisne] - Get with salty", () => {
+    GlobalState.setAvailableCuisines("salty");
+    expect(GlobalState.getAvailableCuisines().sort()).toEqual(salty.sort());
+    expect(GlobalState.getRemainingCuisineCount()).toBe(salty.length);
+
+    const generatedCuisine = GlobalState.generateCuisine();
+    const isIn = salty.includes(generatedCuisine);
+    expect(isIn).toBe(true);
+    expect(GlobalState.getRemainingCuisineCount()).toBe(salty.length - 1);
+    expect(GlobalState.getFlavor("salty").length).toBe(salty.length);
+  });
+
+  test("<HAPPY>[generateCuisne] - Get with sweet", () => {
+    GlobalState.setAvailableCuisines("sweet");
+    expect(GlobalState.getAvailableCuisines().sort()).toEqual(sweet.sort());
+    expect(GlobalState.getRemainingCuisineCount()).toBe(sweet.length);
+
+    const generatedCuisine = GlobalState.generateCuisine();
+    const isIn = sweet.includes(generatedCuisine);
+    expect(isIn).toBe(true);
+    expect(GlobalState.getRemainingCuisineCount()).toBe(sweet.length - 1);
+    expect(GlobalState.getFlavor("sweet").length).toBe(sweet.length);
+  });
+
+  test("<HAPPY>[generateCuisne] - Get with sour", () => {
+    GlobalState.setAvailableCuisines("sour");
+    expect(GlobalState.getAvailableCuisines().sort()).toEqual(sour.sort());
+    expect(GlobalState.getRemainingCuisineCount()).toBe(sour.length);
+
+    const generatedCuisine = GlobalState.generateCuisine();
+    const isIn = sour.includes(generatedCuisine);
+    expect(isIn).toBe(true);
+    expect(GlobalState.getRemainingCuisineCount()).toBe(sour.length - 1);
+    expect(GlobalState.getFlavor("sour").length).toBe(sour.length);
+  });
+
+  test("<HAPPY>[generateCuisne] - Get with spicy", () => {
+    GlobalState.setAvailableCuisines("spicy");
+    expect(GlobalState.getAvailableCuisines().sort()).toEqual(spicy.sort());
+    expect(GlobalState.getRemainingCuisineCount()).toBe(spicy.length);
+
+    const generatedCuisine = GlobalState.generateCuisine();
+    const isIn = spicy.includes(generatedCuisine);
+    expect(isIn).toBe(true);
+    expect(GlobalState.getRemainingCuisineCount()).toBe(spicy.length - 1);
+    expect(GlobalState.getFlavor("spicy").length).toBe(spicy.length);
+  });
+
+  test("<HAPPY>[generateCuisne] - Get with umani", () => {
+    GlobalState.setAvailableCuisines("umani");
+    expect(GlobalState.getAvailableCuisines().sort()).toEqual(umani.sort());
+    expect(GlobalState.getRemainingCuisineCount()).toBe(umani.length);
+
+    const generatedCuisine = GlobalState.generateCuisine();
+    const isIn = umani.includes(generatedCuisine);
+    expect(isIn).toBe(true);
+    expect(GlobalState.getRemainingCuisineCount()).toBe(umani.length - 1);
+    expect(GlobalState.getFlavor("umani").length).toBe(umani.length);
+  });
+
+  test("<HAPPY>[generateCuisne] - Get with mostFavorite", () => {
+    GlobalState.setAvailableCuisines("mostFavorite");
+    expect(GlobalState.getAvailableCuisines().sort()).toEqual(
+      mostFavorite.sort()
+    );
+    expect(GlobalState.getRemainingCuisineCount()).toBe(mostFavorite.length);
+
+    const generatedCuisine = GlobalState.generateCuisine();
+    const isIn = mostFavorite.includes(generatedCuisine);
+    expect(isIn).toBe(true);
+    expect(GlobalState.getRemainingCuisineCount()).toBe(
+      mostFavorite.length - 1
+    );
+    expect(GlobalState.getMostFavorite().length).toBe(mostFavorite.length);
+  });
+
+  test("<HAPPY>[generateCuisne] - Get with mostTried", () => {
+    GlobalState.setAvailableCuisines("mostTried");
+    expect(GlobalState.getAvailableCuisines().sort()).toEqual(mostTried.sort());
+    expect(GlobalState.getRemainingCuisineCount()).toBe(mostTried.length);
+
+    const generatedCuisine = GlobalState.generateCuisine();
+    const isIn = mostTried.includes(generatedCuisine);
+    expect(isIn).toBe(true);
+    expect(GlobalState.getRemainingCuisineCount()).toBe(mostTried.length - 1);
+    expect(GlobalState.getMostTried().length).toBe(mostTried.length);
+  });
+
+  test("<HAPPY>[generateCuisne] - Get with mostWishlist", () => {
+    GlobalState.setAvailableCuisines("mostWishlist");
+    expect(GlobalState.getAvailableCuisines().sort()).toEqual(
+      mostWishlist.sort()
+    );
+    expect(GlobalState.getRemainingCuisineCount()).toBe(mostWishlist.length);
+
+    const generatedCuisine = GlobalState.generateCuisine();
+    const isIn = mostWishlist.includes(generatedCuisine);
+    expect(isIn).toBe(true);
+    expect(GlobalState.getRemainingCuisineCount()).toBe(
+      mostWishlist.length - 1
+    );
+    expect(GlobalState.getMostWishlist().length).toBe(mostWishlist.length);
   });
 });

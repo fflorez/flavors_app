@@ -17,6 +17,10 @@ const GlobalState = (() => {
 
   let _mostWishlist = [];
 
+  let _availableCuisines = [];
+
+  let _remainingCuisinesCount = 0;
+
   const State = {
     setAllCuisines: (cuisines) => Object.assign(_cuisines, cuisines),
     getAllCuisines: () => Object.keys(_cuisines),
@@ -78,11 +82,98 @@ const GlobalState = (() => {
       _cuisines[tried].isTried = false;
     },
     setMostFavorite: (mostFavorite) => (_mostFavorite = [...mostFavorite]),
-    getMostFavorite: () => [..._mostFavorie],
+    getMostFavorite: () => [..._mostFavorite],
     setMostWishlist: (mostWishlist) => (_mostWishlist = [...mostWishlist]),
     getMostWishlist: () => [..._mostWishlist],
     setMostTried: (mostTried) => (_mostTried = [...mostTried]),
     getMostTried: () => [..._mostTried],
+    setAvailableCuisines: (strategy) => {
+      switch (strategy) {
+        case "all":
+          _availableCuisines = Object.keys(_cuisines);
+          break;
+        case "wishlist":
+          _availableCuisines = [..._wishlist];
+          break;
+        case "favorites":
+          _availableCuisines = [..._favorites];
+          break;
+        case "tried":
+          _availableCuisines = [..._tried];
+          break;
+        case "Asia":
+          _availableCuisines = [..._continets["Asia"]];
+          break;
+        case "Africa":
+          _availableCuisines = [..._continets["Africa"]];
+          break;
+        case "North America":
+          _availableCuisines = [..._continets["North America"]];
+          break;
+        case "South America":
+          _availableCuisines = [..._continets["South America"]];
+          break;
+        case "Europe":
+          _availableCuisines = [..._continets["Europe"]];
+          break;
+        case "Oceania":
+          _availableCuisines = [..._continets["Oceania"]];
+          break;
+        case "salty":
+          _availableCuisines = [..._flavors["salty"]];
+          break;
+        case "sweet":
+          _availableCuisines = [..._flavors["sweet"]];
+          break;
+        case "sour":
+          _availableCuisines = [..._flavors["sour"]];
+          break;
+        case "spicy":
+          _availableCuisines = [..._flavors["spicy"]];
+          break;
+        case "umani":
+          _availableCuisines = [..._flavors["umani"]];
+          break;
+        case "mostFavorite":
+          _availableCuisines = [..._mostFavorite];
+          break;
+        case "mostTried":
+          _availableCuisines = [..._mostTried];
+          break;
+        case "mostWishlist":
+          _availableCuisines = [..._mostWishlist];
+          break;
+        default:
+          _availableCuisines = [];
+      }
+
+      _remainingCuisinesCount = _availableCuisines.length;
+    },
+    getAvailableCuisines: () => {
+      return [..._availableCuisines];
+    },
+    generateCuisine: () => {
+      let cuisine = "";
+
+      if (_remainingCuisinesCount >= 2) {
+        const index = Math.floor(Math.random() * _remainingCuisinesCount);
+        cuisine = _availableCuisines[index];
+        _availableCuisines = _availableCuisines.filter((item) => {
+          return item != cuisine;
+        });
+
+        _remainingCuisinesCount = _availableCuisines.length;
+      } else if (_remainingCuisinesCount == 1) {
+        cuisine = _availableCuisines[0];
+        _availableCuisines = [];
+        _remainingCuisinesCount = 0;
+      }
+
+      return cuisine;
+    },
+    getRemainingCuisineCount: () => {
+      return _remainingCuisinesCount;
+    },
   };
 
   return Object.freeze(State);
