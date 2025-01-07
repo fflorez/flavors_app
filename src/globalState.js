@@ -1,4 +1,6 @@
 const GlobalState = (() => {
+  let _userId = null;
+
   let _cuisines = {};
 
   let _flavors = {};
@@ -22,6 +24,8 @@ const GlobalState = (() => {
   let _remainingCuisinesCount = 0;
 
   const State = {
+    setUserId: (userId) => (_userId = userId),
+    getUserId: () => _userId,
     setAllCuisines: (cuisines) => Object.assign(_cuisines, cuisines),
     getAllCuisines: () => Object.keys(_cuisines),
     getCuisine: (cuisine) => Object.assign({}, _cuisines[cuisine]),
